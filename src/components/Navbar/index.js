@@ -24,17 +24,17 @@ const ButtonGroup = styled.span`
 
 
 const LogoNavbar = styled.div`
-      
+    margin: 0 1rem;
 `;
 
 function Navbar(){
     return (
      <NavbarContainer>
-        <div>Icon </div>
+        <LogoNavbar>Icon </LogoNavbar>
         <ButtonGroup>
-        <Button>Home</Button>
-        <Button>Home</Button>
-        <Button>Home</Button>
+        <Button>Have Post</Button>
+        <Button>Need Post</Button>
+        <Button>Register</Button>
         </ButtonGroup>
         
      </NavbarContainer>
