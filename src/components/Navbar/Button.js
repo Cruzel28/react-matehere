@@ -7,6 +7,8 @@ const StyleButton = styled.div`
    width: 100px ;
    color : white;
    align-items: center;
+   font-size: 20px;
+   margin: 0 .5rem;
 `;
 
 function Button({children}){
