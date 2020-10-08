@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "./Button"
+import Button from "./Button";
+import {Link} from 'react-router-dom';
 
 import styled from "styled-components";
 
@@ -32,9 +33,9 @@ function Navbar(){
      <NavbarContainer>
         <LogoNavbar>Icon </LogoNavbar>
         <ButtonGroup>
-        <Button>Have Post</Button>
-        <Button>Need Post</Button>
-        <Button>Register</Button>
+            <Link to="/" ><Button>Home</Button></Link>
+            <Link to="/Havepost" ><Button>Have Post</Button></Link>
+            <Link to="/Needpost" ><Button>Need Post</Button></Link>
         </ButtonGroup>
         
      </NavbarContainer>
