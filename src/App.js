@@ -1,7 +1,6 @@
-import React from 'react';
-import Navbar from "./components/Navbar"
+import React,{Suspense } from 'react';
 import { createGlobalStyle } from "styled-components";
-import { BrowserRouter } from "react-router-dom";
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -21,12 +20,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Home = React.lazy(() => import("./pages/Home") ) ;
+
 function App() {
   return (
     <>
     <GlobalStyle />
-    <Navbar/>
-  </>
+      <Router>
+        <Suspense fallback='...loading' >
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </Suspense>
+      </Router>
+   </>
   );
 }
 
