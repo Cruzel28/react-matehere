@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import {ActionFormProvider} from './contexts/ActionForm'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ActionFormProvider>
+       <App />
+    </ActionFormProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
