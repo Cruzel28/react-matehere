@@ -1,83 +1,57 @@
-import React, { useContext ,useState} from 'react'
-// import Information from './Information'
-// import Account from './Account'
-// import * as yup from "yup";
-// import { StoreContext } from '../Context/store'
+import React, { useEffect, useState,useContext } from 'react';
+import StepForm from './StepForm'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import styled from 'styled-components'
 
+import ActionForm from '../../contexts/ActionForm'
 
+const SelectStyled = styled(Select)`
+    width : 20vw;
+`
 
-// const informationSchema = yup.object().shape({
-//     firstName: yup.string().required('This field is required.'),
-//     lastName: yup.string().required('This field is required.'),
-//     nickname: yup.string().required('This field is required.'),
-// });
+function Form() {
 
-// const accountSchema = yup.object().shape({
-//     email: yup
-//         .string()
-//         .email('Invalid email.')
-//         .required('This field is required.'),
-//     password: yup
-//         .string()
-//         .required('This field is required.')
-//         .min(3, 'Please Enter less then 3 letters'),
-//     confirmPassword: yup
-//         .string()
-//         .required('This field is required.')
-//         .min(3, 'This field at least 3 characters.')
-//         .oneOf([yup.ref('password'), null], "Password not match."),
-// });
-
-
-export default function StepperForm() {
-    // const { information, account } = useContext(StoreContext)
-
-
-
-    const [activeStep, setActiveStep] = useState(0);
-
-    const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep(prevActiveStep => prevActiveStep - 1);
-    };
-
-    // const handleReset = () => {
-    //     // information[1]({})
-    //     // account[1]({})
-    //     setActiveStep(0);
-    // };
-
-    // const onSubmit = data => {
-    //     console.log(data);
-    //     if(activeStep === 0){
-    //         information[1](data)
-    //     }
-    //     else if(activeStep === 1){
-    //         account[1](data)
-    //     }
-    //     handleNext()
-    // };
-
-    // function getStepContent(stepIndex) {
-    //     switch (stepIndex) {
-    //         case 0:
-    //             return <Information />;
-    //         case 1:
-    //             return <Account  />;
-    //         default:
-    //             return 'Unknown stepIndex';
-    //     }
-    // }
-    switch (activeStep) {
-        case 0:
-            return ( <><h1>Doge</h1><button onClick={handleNext}>F</button></> )
-        case 1:
-            return (<><h1>DogeWOW</h1> <button onClick={handleBack}> B </button> </>)
-        default:
-            return 'Unknown stepIndex';
+    //ActionContext Form Obj State
+    const { Active } = useContext(ActionForm );
+    const { activeStep } = Active;
+    
+    //Disable lock list HavePost NeedPost
+    const [isDisabled, setIsDisabled] = useState(false)
+    //type for type form to post
+    const [typePost, setTypePost] = useState("");
+      
+    const handleTypePost = (event) => {
+        setTypePost(event.target.value);
     }
 
+
+    useEffect( () => { 
+        if (activeStep !== 0){
+            setIsDisabled(true)
+        } else {
+            setIsDisabled(false)
+        }
+     }, [activeStep])
+
+     
+    return (
+        <>
+            <FormControl>
+                <InputLabel >Type</InputLabel>
+                <SelectStyled disabled={isDisabled} id="SelectStyle" value={typePost} onChange={handleTypePost} >
+                    <MenuItem value={"HavePost"}>HavePost</MenuItem>
+                    <MenuItem value={"NeedPost"}>NeedPost</MenuItem>
+                </SelectStyled>
+
+            </FormControl>
+            
+            <StepForm>{typePost}</StepForm>
+
+        </>
+    );
 }
+
+export default Form;
