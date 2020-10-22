@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {ActionFormProvider} from './contexts/ActionForm'
+import {ActionRegisterLoginProvider} from './contexts/ActionRegisterLogin'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ActionFormProvider>
-       <App />
-    </ActionFormProvider>
+    <ActionRegisterLoginProvider>
+      <ActionFormProvider>
+        <App />
+      </ActionFormProvider>
+    </ActionRegisterLoginProvider>
   </React.StrictMode>,
+  
   document.getElementById('root')
 );
 
