@@ -24,10 +24,11 @@ const TextBox = styled.div`
 
 const SearchBar = styled.div`
   display: flex;
+  
 `;
 
 const InputBox = styled.input`
-  width: 100%;
+  width: 20rem;
   height: fit-content;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -45,8 +46,9 @@ const InputBox = styled.input`
 const SearchDropdown = styled.select`
   display: flex;
   position: relative;
-  width: auto;
-  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px;
   border: none;
   background-color: #4192b0;
 
@@ -82,7 +84,7 @@ const Button = styled.button`
   background-color: #4192b0;
   background-image: url(${(props) => props.src});
   background-repeat: no-repeat;
-  background-size: 1.5rem 2rem;
+  background-size: 1rem 1.5rem;
   background-position: center;
 
   &:hover {
