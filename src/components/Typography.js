@@ -26,3 +26,8 @@ export const SemiSubtitle = styled(Text)`
       cursor: pointer;
   }
 `
+
+export const FooterText = styled(Text)`
+  font-size: .5rem; 
+  
+`
