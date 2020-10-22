@@ -1,6 +1,5 @@
 import React from 'react'
 import backgroundImage from '../assets/background.jpg'
-// import backgroundImage1 from '../assets/2.jpg'
 import styled from 'styled-components'
 
 const BackgroundImage = styled.div`
@@ -12,6 +11,9 @@ const BackgroundImage = styled.div`
   background-size : cover;
   background-position : center ;
   background-attachment :fixed ;
+  
+
+
   position : relative;
 
 `
@@ -26,8 +28,10 @@ const BackgroundOvertlay = styled.div`
   justify-content :center ;
   align-items : center ;
 
+  
+
 `
-function HomeBackground({src,children}) {
+function BackgroundBlock({src,children}) {
   return (
     <BackgroundImage src={backgroundImage} >
         <BackgroundOvertlay>
@@ -39,6 +43,4 @@ function HomeBackground({src,children}) {
   )
 
 }
-export default HomeBackground
-
-
+export default BackgroundBlock

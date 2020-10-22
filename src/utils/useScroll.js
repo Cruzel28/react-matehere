@@ -1,20 +1,21 @@
-import { useEffect, useState, useCallback } from "react";
+import React,{useEffect, useState} from 'react'
 
-function useScroll({ scrollRange = 20 } = {}) {
-  const [isScroll, setScroll] = useState(false);
-  const handleScrollEvent = useCallback(() => {
-    if (window.scrollY > scrollRange) return setScroll(true);
+function useScroll ({scrollRange = 20} = {}){
+
+  const [isScroll,setScroll] =useState(false);
+  function handleScrollEvent () {
+    if(window.scrollY > scrollRange ) return  setScroll(true)
 
     return setScroll(false);
-  }, [scrollRange]);
+  }
+    useEffect( () => {
+      document.addEventListener('scroll',handleScrollEvent)
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScrollEvent)
+        return () => document.removeEventListener('scroll',handleScrollEvent)
+      },[])
 
-    return () => window.removeEventListener('scroll', handleScrollEvent)
-  }, [handleScrollEvent]);
+  return isScroll
 
-  return isScroll;
 }
 
 export default useScroll;
