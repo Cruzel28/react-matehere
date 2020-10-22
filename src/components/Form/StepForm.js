@@ -18,10 +18,6 @@ const StepperStyled = styled(Stepper)`
 const ContentFormDiv = styled.div`
 `
 
-function getSteps() {
-  return ['General Information', 'Personal Information', 'Central Information','Room Information'];
-}
-
 function getStepContentHavePost(stepIndex) {
   switch (stepIndex) {
     case 0:
@@ -55,22 +51,17 @@ function getStepContentNeedPost(stepIndex) {
 
 export default function StepFrom(props) {
 
-  const {Active } = useContext(ActionForm );
-  const {activeStep, setActiveStep } = Active;
+  const {Active ,Steps,HandleButton} = useContext(ActionForm );
+  
+  //state global Step
+  const {activeStep } = Active;
 
-  const steps = getSteps();
+  //state function handle event buttonClick step
+  const {  handleReset } = HandleButton;
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  //state fuction 
+  const { steps } = Steps
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
 
   return (
     <div >
@@ -92,17 +83,6 @@ export default function StepFrom(props) {
             <ContentFormDiv>
               {props.children === "HavePost" ? getStepContentHavePost(activeStep) : getStepContentNeedPost(activeStep) }
             </ContentFormDiv>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-              >
-                Back
-              </Button>
-              <Button  onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
-            </div>
           </div>
         )}
       </div>
