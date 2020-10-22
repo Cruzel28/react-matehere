@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useState,useContext } from 'react';
 import StepForm from './StepForm'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,8 +8,11 @@ import styled from 'styled-components'
 
 import ActionForm from '../../contexts/ActionForm'
 
-const SelectStyled = styled(Select)`
-    width : 20vw;
+const Selector = styled(Select)`
+   width : 20vw; 
+`
+const SelectorDiv = styled.div`
+    margin-top:100px;
 `
 
 function Form() {
@@ -18,8 +21,6 @@ function Form() {
     const { Active } = useContext(ActionForm );
     const { activeStep } = Active;
     
-    //Disable lock list HavePost NeedPost
-    const [isDisabled, setIsDisabled] = useState(false)
     //type for type form to post
     const [typePost, setTypePost] = useState("");
       
@@ -27,28 +28,18 @@ function Form() {
         setTypePost(event.target.value);
     }
 
-
-    useEffect( () => { 
-        if (activeStep !== 0){
-            setIsDisabled(true)
-        } else {
-            setIsDisabled(false)
-        }
-     }, [activeStep])
-
-     
     return (
         <>
-            <FormControl>
-                <InputLabel >Type</InputLabel>
-                <SelectStyled disabled={isDisabled} id="SelectStyle" value={typePost} onChange={handleTypePost} >
-                    <MenuItem value={"HavePost"}>HavePost</MenuItem>
-                    <MenuItem value={"NeedPost"}>NeedPost</MenuItem>
-                </SelectStyled>
-
-            </FormControl>
-            
-            <StepForm>{typePost}</StepForm>
+            <SelectorDiv>
+                <FormControl>
+                        <InputLabel id="SelectStyle">TYPE</InputLabel>
+                        <Selector disabled={(activeStep !== 0 ? true : false)} id="SelectStyle" value={typePost} onChange={handleTypePost} >
+                            <MenuItem value={"HavePost"}>HavePost</MenuItem>
+                            <MenuItem value={"NeedPost"}>NeedPost</MenuItem>
+                        </Selector>
+                </FormControl>
+                <StepForm>{typePost}</StepForm>
+            </SelectorDiv>
 
         </>
     );
