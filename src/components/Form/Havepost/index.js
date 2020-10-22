@@ -9,7 +9,8 @@ import styled from 'styled-components'
 import ActionForm from '../../../contexts/ActionForm'
 
 const accountSchema = Yup.object().shape({
-    university : Yup.string().required('This field is required.')
+    university : Yup.string().required('This field is required.'),
+    typeroom : Yup.string().required('This field is required.'),
 });
 
 
@@ -33,11 +34,12 @@ export function HavePost1() {
             <Formik
                     initialValues={{ //กำหนด initialValues
                         university: '',
+                        typeroom : '',
                     }}
                     validationSchema={accountSchema} //กำหนด validationSchema
                     
                     onSubmit={values => {
-                        setInfoHavePost(...infoHavePost,{University : values.university})
+                        setInfoHavePost({University : values.university},{ TypeRoom : values.typeroom})
                       }}
             >
                 { props => (
@@ -62,6 +64,27 @@ export function HavePost1() {
                                     />  
                                 )}
                             />
+
+                            <Field
+                                name="typeroom"
+                                render={ () => (
+                                    <TextField 
+                                        id="outlined-error-helper-text"
+                                        variant="outlined"
+                                        label="Type Room"
+                                        name={"typeroom"}
+                                        error= { 
+                                            Boolean(props.errors.typeroom  && props.touched.typeroom )
+                                        }
+                                        defaultValue={infoHavePost.typeroom}
+                                        onChange={props.handleChange}
+                                        onBlur={props.handleBlur}
+                                        helperText={
+                                            (props.touched.typeroom  && props.errors.typeroom  ? String(props.errors.typeroom ) : '')
+                                        }
+                                    />  
+                                )}
+                            />
                         <Button disabled={activeStep === 0} onClick={handleBack}>Back</Button>
                         <Button  onClick={handleNext}> {activeStep === steps.length - 1 ? 'Finish' : 'Next'} </Button>
                     </Form>
@@ -73,10 +96,11 @@ export function HavePost1() {
 
 
 export function HavePost2() {
-    return (
-        <div>
 
-        </div>
+    return (
+        <>
+
+        </>
     );
 }
 

@@ -8,7 +8,8 @@ export const ActionFormProvider = ({ children }) => {
 
     const [ infoHavePost, setInfoHavePost ] = useState({ 
 
-        University : undefined,TestInfo2 : undefined
+        University : undefined,
+        TypeRoom : undefined,
     })
 
     const [infoNeedPost, setInfoNeedPost] = useState({ 
