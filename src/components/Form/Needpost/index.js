@@ -9,6 +9,18 @@ import styled from 'styled-components'
 import ActionForm from '../../../contexts/ActionForm'
 
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  margin-bottom: 2rem;
+
+  font-family : 'Kanit', sans-serif;
+    font-size : 20px;
+`
+
 
 const NeedPostSchema = Yup.object().shape({
     needuniversityname :Yup.string().required('This field is required.'),
@@ -43,8 +55,8 @@ export function NeedPost1() {
     const { infoNeedPost , setInfoNeedPost } = NeedPost;
 
     return (
-        <BackgroundBlock>
-       
+     
+          
             <Formik
                     initialValues={{ //กำหนด initialValues
                         needuniversityname: '',
@@ -68,7 +80,9 @@ export function NeedPost1() {
                       }}
             >
                 { props => (
+                   
                     <Form >
+                        <Content>
                         <Field
                                 name="needuniversityname"
                                 render={ () => (
@@ -89,8 +103,9 @@ export function NeedPost1() {
                                     />  
                                 )}
                             />
-
-
+                        
+                        </Content>
+                        <Content>
                             <Field
                                 name="needtype"
                                 render={ () => (
@@ -112,7 +127,10 @@ export function NeedPost1() {
                                     
                                 )}
                             />
+                            
+                            </Content>
 
+                            <Content>
                             <Field
                                 name="needfullcost"
                                 render={ () => (
@@ -134,7 +152,9 @@ export function NeedPost1() {
                                     
                                 )}
                             />
+                            </Content>
 
+                            <Content>
                             <Field
                                 name="needhalfcost"
                                 render={ () => (
@@ -156,7 +176,8 @@ export function NeedPost1() {
                                     
                                 )}
                             />
-
+                           </Content>
+                           <Content>
                             <Field
                                 name="needamountofmate"
                                 render={ () => (
@@ -178,7 +199,7 @@ export function NeedPost1() {
                                     
                                 )}
                             />
-
+                            </Content>
                             <Field
                                 name="needlocation"
                                 render={ () => (
@@ -208,8 +229,8 @@ export function NeedPost1() {
             </Formik>
         
     
+          
         
-        </BackgroundBlock>
     );
 }
 export function NeedPost2() {
