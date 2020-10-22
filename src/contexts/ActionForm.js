@@ -8,7 +8,7 @@ export const ActionFormProvider = ({ children }) => {
 
     const [ infoHavePost, setInfoHavePost ] = useState({ 
 
-        TestInfo1 : undefined,TestInfo2 : undefined
+        University : undefined,TestInfo2 : undefined
     })
 
     const [infoNeedPost, setInfoNeedPost] = useState({ 
@@ -16,13 +16,32 @@ export const ActionFormProvider = ({ children }) => {
         TestInfo : undefined,TestInfo2 : undefined
     })
 
-    const [ test, settest] = useState({ Email : undefined})
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      };
+    
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+    
+    const handleReset = () => {
+        setActiveStep(0);
+    };
+
+    
+    function getSteps() {
+        return ['General Information', 'Personal Information', 'Central Information','Room Information'];
+    }
+
+    const steps = getSteps();
 
     const InfoPost = {
         HavePost : { infoHavePost :infoHavePost, setInfoHavePost : setInfoHavePost},
         NeedPost : { infoNeedPost :infoNeedPost, setInfoNeedPost : setInfoNeedPost },
         Active : { activeStep: activeStep, setActiveStep :setActiveStep},
-        Test : {test: test, settest :settest}
+        HandleButton : { handleNext: handleNext, handleBack :handleBack , handleReset :handleReset },
+        Steps :{steps : steps}
+
         
     }
 
