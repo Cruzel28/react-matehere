@@ -20,6 +20,7 @@ padding-bottom: 1rem;
 
 export const SemiSubtitle = styled(Text)`
   font-size: 1rem;
+  padding-top: .5rem;
 
   a:hover {
       color: #FFC125;
@@ -29,5 +30,5 @@ export const SemiSubtitle = styled(Text)`
 
 export const FooterText = styled(Text)`
   font-size: .5rem; 
-  
+
 `
