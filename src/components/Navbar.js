@@ -56,6 +56,7 @@ function NavBar () {
           <Action><Link to='/havepost' >หาเมท</Link></Action>
           <Action><Link to='/needpost' >หาห้อง</Link></Action>
           <Action><Link to='/login' >เข้าสู่ระบบ</Link></Action>
+          <Action><Link to='/addpost' >เพิ่มโพสต์</Link></Action>
         </ActionContainer>
     </Wrapper>
 
