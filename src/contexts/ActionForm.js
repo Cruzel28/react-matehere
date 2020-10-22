@@ -26,7 +26,20 @@ export const ActionFormProvider = ({ children }) => {
 
     const [infoNeedPost, setInfoNeedPost] = useState({ 
         
-        TestInfo : undefined,TestInfo2 : undefined
+        need_university_name :undefined ,
+        need_type : undefined,
+        need_full_cost :undefined ,
+        need_half_cost : undefined,
+        need_amount_of_mate :undefined ,
+        need_location : undefined,
+        need_faculty : undefined,
+        need_faculty_mate : undefined,
+        need_habit : undefined,
+        need_habit_mate : undefined,
+        need_routine:undefined,
+        need_like_thing : undefined,
+        need_dislike : undefined,
+        need_other_information : undefined,
     })
 
     const handleNext = () => {
