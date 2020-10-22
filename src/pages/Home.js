@@ -44,6 +44,7 @@ const InputBox = styled.input`
 
 const SearchDropdown = styled.select`
   display: flex;
+  position: relative;
   width: auto;
   padding: 1rem;
   border: none;
@@ -109,7 +110,9 @@ const Content = styled.button`
   background-position: center;
 
   &:hover {
+    filter: drop-shadow(1px 1px 10px  #fff0cb );
     cursor: pointer;
+    transition: filter 0.5s;
   }
 `;
 
