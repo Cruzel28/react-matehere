@@ -53,8 +53,8 @@ function NavBar () {
         <Logo src={logoImage}/>
         <ActionContainer>
           <Action><Link to='/' >หน้าแรก</Link></Action>
-          <Action><Link to='/havepost' >หาเมท</Link></Action>
-          <Action><Link to='/needpost' >หาห้อง</Link></Action>
+          <Action><Link to='/haveroom' >หาเมท</Link></Action>
+          <Action><Link to='/needroom' >หาห้อง</Link></Action>
           <Action><Link to='/login' >เข้าสู่ระบบ</Link></Action>
           <Action><Link to='/addpost' >เพิ่มโพสต์</Link></Action>
         </ActionContainer>
