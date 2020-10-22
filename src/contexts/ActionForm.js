@@ -10,6 +10,18 @@ export const ActionFormProvider = ({ children }) => {
 
         University : undefined,
         TypeRoom : undefined,
+        Fullcost : undefined,
+        Halfcost : undefined,
+        AmountOfMate : undefined,
+        Location : undefined,
+        Faculty : undefined,
+        WantMateFaculty : undefined,
+        Habit : undefined,
+        WantMateHabit : undefined,
+        Routine : undefined,
+        Like : undefined,
+        Dislike : undefined,
+        Other : undefined,
     })
 
     const [infoNeedPost, setInfoNeedPost] = useState({ 
