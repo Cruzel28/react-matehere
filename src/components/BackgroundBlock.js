@@ -12,8 +12,6 @@ const BackgroundImage = styled.div`
   background-position : center ;
   background-attachment :fixed ;
   
-
-
   position : relative;
 
 `
