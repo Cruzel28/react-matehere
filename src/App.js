@@ -4,6 +4,7 @@ import routes from './configs/routes';
 import withHelmet from './utils/withHelmet';
 import GlobalStyle from './utils/GlobalStyle';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
             ))}
           </Switch>
         </Suspense>
+        
+        <Footer/>
         </Router> 
    </>
   );
