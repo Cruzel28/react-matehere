@@ -2,6 +2,7 @@ import React from "react";
 import BackgroundBlock from "../components/BackgroundBlock";
 import HomeBackground from "../components/HomeBackground";
 
+import { Link } from 'react-router-dom'
 import searchIcon from "../assets/search.png";
 import havePostIcon from "../assets/haveRoom.jpg";
 import NeedPostIcon from "../assets/needRoom.jpg";
@@ -157,15 +158,21 @@ function Home() {
             <Subtitle>สร้างโพสต์</Subtitle>
           </ContentContainer>
           <ContentContainer>
+          <Link to="/addpost">
             <Lane>
-            <Content  src={havePostIcon} />
+             
+            <Content  src={havePostIcon}/>
+           
             <Subtitle>หารูมเมท</Subtitle>
             </Lane>
-            
+            </Link>
+
+            <Link  to="/addpost">
             <Lane>
-            <Content src={NeedPostIcon} />
+            <Content src={NeedPostIcon}/>
             <Subtitle>หาห้องและรูมเมท</Subtitle>
             </Lane>
+            </Link>
           </ContentContainer>
         </HomeBackground>
       </div>
