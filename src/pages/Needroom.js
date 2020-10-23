@@ -1,13 +1,14 @@
 import React from "react";
 import BackgroundBlock from "../components/BackgroundBlock";
 import AddPost from '../assets/addpost.png'
+import Post from '../assets/coverBlog.png'
 
 import { TitlePost, SemiSubtitle } from "../components/Typography";
 import styled from "styled-components";
 
 const Container = styled.div`
    position: absolute;
-  width: 70%;
+  width: auto;
   height: auto;
   background-color:#81C0C5;
   display: flex;
@@ -20,12 +21,15 @@ const Content = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  
 
 `
-const Content2 = styled.div`
+const LayoutContent = styled.div`
+ flex: 1;
 display: flex;
-  flex: 2;
-  flex-direction: column;
+flex-direction:row;
+align-items: center;
+  padding: 1rem 1rem;
 `
 
 const Button = styled.button`
@@ -64,7 +68,11 @@ function Needroom() {
               {" "}
               หรือ
               <a href="/haveroom"> กดที่นี่หากคุณมีห้องอยู่แล้ว</a>
+              <LayoutContent>
               <Button src={AddPost}/>
+              <Button src={Post}/>
+              
+              </LayoutContent>
               
             </SemiSubtitle>
             </Content>
