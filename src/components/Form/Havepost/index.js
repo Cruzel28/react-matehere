@@ -213,7 +213,7 @@ export function HavePost2() {
               <StyledInput 
                           name={"habitmate"}
                           onChange={(e) => {setInfoHavePost({...infoHavePost,habit_mate : e.target.value})}}
-                          value={infoHavePost.habit} 
+                          value={infoHavePost.habit_mate} 
                           placeholder="ลักษณะนิสัยของเมท" 
                           onBlur={( infoHavePost.habit_mate=== '' ?validator.showMessageFor("habitmate") : '')}
                           
@@ -330,6 +330,36 @@ export function HavePost3() {
                 <option value="ไม่มี">ไม่มี</option>
           </SearchDropdown>
 
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,lift : e.target.value})}} value={infoHavePost.lift} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,keycard : e.target.value})}} value={infoHavePost.keycard} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,security : e.target.value})}} value={infoHavePost.security} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,pool : e.target.value})}} value={infoHavePost.pool} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,gym : e.target.value})}} value={infoHavePost.gym} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,luandry : e.target.value})}} value={infoHavePost.luandry} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
           </Container>
 
           <ButtonContainer>
@@ -341,10 +371,85 @@ export function HavePost3() {
 }
 export function HavePost4() {
 
-  
-  return (
-      <>
+   //state global Step
+   const {Active,Steps,HandleButton,HavePost } = useContext(ActionForm );
+   const {activeStep } = Active;
+   //state function handle event buttonClick steponForm );
+   const { handleNext,handleBack  } = HandleButton;
+   const { steps } = Steps
+   //ActionContext Form Havepost Information State 
+   const { infoHavePost , setInfoHavePost } = HavePost;
 
+   const [validator, showValidationMessage] = useValidator()
+
+   const handleSubmitFont = () => {
+     if (validator.allValid()) {
+       handleNext();
+     } else {
+       showValidationMessage(true);
+     }
+   };
+  return (
+      <>  
+        <Container>
+
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,air_conditioner : e.target.value})}} value={infoHavePost.air_conditioner} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          <StyledInput 
+                          name={"numberoftoilet"}
+                          onChange={(e) => {setInfoHavePost({...infoHavePost,number_of_toilet : e.target.value})}}
+                          value={infoHavePost.number_of_toilet} 
+                          placeholder="จำนวนห้องน้ำ" 
+                          onBlur={( infoHavePost.number_of_toilet=== '' ?validator.showMessageFor("numberoftoilet") : '')}
+                          
+              />
+              <ErrorMassage>{validator.message("numberoftoilet", infoHavePost.number_of_toilet, "required", {messages: {required: "กรุณากรอก"}})}</ErrorMassage>
+            
+
+              <StyledInput 
+                          name={"numberofbedroom"}
+                          onChange={(e) => {setInfoHavePost({...infoHavePost,number_of_bedroom : e.target.value})}}
+                          value={infoHavePost.number_of_bedroom} 
+                          placeholder="จำนวนห้องนอน" 
+                          onBlur={( infoHavePost.number_of_bedroom=== '' ?validator.showMessageFor("numberofbedroom") : '')}
+                          
+              />
+              <ErrorMassage>{validator.message("numberofbedroom", infoHavePost.number_of_bedroom, "required", {messages: {required: "กรุณากรอก"}})}</ErrorMassage>
+            
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,pets : e.target.value})}} value={infoHavePost.pets} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+            
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,smoking : e.target.value})}} value={infoHavePost.smoking} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+            
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,internet_wifi : e.target.value})}} value={infoHavePost.internet_wifi} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+            
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,furniture : e.target.value})}} value={infoHavePost.furniture} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+            
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,water_heater : e.target.value})}} value={infoHavePost.water_heater} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+        </Container>
+
+        <ButtonContainer>
+            <Button onClick={handleBack} disabled={activeStep === 0} >Back</Button>
+            <Button onClick={handleSubmitFont} > {activeStep === steps.length - 1 ? 'Finish' : 'Next'} </Button>            
+</ButtonContainer>
       </>
   );
 }
