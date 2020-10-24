@@ -23,6 +23,17 @@ export default {
     path: '/haveroom',
     exact : true,
     component : lazy( () => import('../pages/Haveroom'))
+  },
+  
+  Login : {
+    path: '/login',
+    exact : true,
+    component : lazy( () => import('../pages/Login'))
+  },
+  Register : {
+    path: '/register',
+    exact : true,
+    component : lazy( () => import('../pages/Register'))
   }
 
 }
