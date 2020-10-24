@@ -3,12 +3,13 @@ import BackgroundBlock from "../components/BackgroundBlock";
 import AddPost from '../assets/addpost.png'
 import Post from '../assets/coverBlog.png'
 
+import { Link } from 'react-router-dom'
 import { TitlePost, SemiSubtitle } from "../components/Typography";
 import styled from "styled-components";
 
 const Container = styled.div`
    position: absolute;
-  width: 70%;
+  width: auto;
   height: auto;
   background-color:#81C0C5;
   display: flex;
@@ -68,7 +69,10 @@ function Haveroom() {
               หรือ
               <a href="/needroom"> กดที่นี่หากคุณยังไม่มีแม้กระทั่งห้อง</a>
               <LayoutContent>
+
+                <Link to="/addpost">
               <Button src={AddPost}/>
+              </Link>
               <Button src={Post}/>
               
               </LayoutContent>
