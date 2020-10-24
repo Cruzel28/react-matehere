@@ -3,6 +3,7 @@ import BackgroundBlock from "../components/BackgroundBlock";
 import AddPost from '../assets/addpost.png'
 import Post from '../assets/coverBlog.png'
 
+import { Link } from 'react-router-dom'
 import { TitlePost, SemiSubtitle } from "../components/Typography";
 import styled from "styled-components";
 
@@ -69,7 +70,9 @@ function Needroom() {
               หรือ
               <a href="/haveroom"> กดที่นี่หากคุณมีห้องอยู่แล้ว</a>
               <LayoutContent>
+              <Link to="/addpost">
               <Button src={AddPost}/>
+              </Link>
               <Button src={Post}/>
               
               </LayoutContent>
