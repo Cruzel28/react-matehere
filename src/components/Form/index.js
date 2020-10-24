@@ -12,13 +12,14 @@ import ActionForm from '../../contexts/ActionForm'
 const Container = styled.div`
    position: absolute;
   width: 70%;
-  height: 75%;
+  height: fit;
   background-color:#81C0C5;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  top: 4rem;
   
 `
 
@@ -30,14 +31,14 @@ const SelectorDiv = styled.div`
   justify-content :center ;
   align-items : center ;
   color: #fff;
-  
+  font-family : 'Kanit', sans-serif;
     
 `
 const Selector = styled(Select)`
    width : 20vw; 
    background-color: #F9B401;
    color: #fff;
-
+   font-family : 'Kanit', sans-serif;
 `
 
 function Form() {
@@ -63,8 +64,8 @@ function Form() {
                     <InputLabel id="SelectStyle">TYPE</InputLabel>
                     
                         <Selector disabled={(activeStep !== 0 ? true : false)} id="SelectStyle" value={typePost} onChange={handleTypePost} >
-                            <MenuItem value={"HavePost"}>HavePost</MenuItem>
-                            <MenuItem value={"NeedPost"}>NeedPost</MenuItem>
+                            <MenuItem value={"HavePost"}>หาเมท</MenuItem>
+                            <MenuItem value={"NeedPost"}>หาห้อง</MenuItem>
                         </Selector>
                        
                 </FormControl>
@@ -72,6 +73,7 @@ function Form() {
             </SelectorDiv>
             </Container>
             </BackgroundBlock>
+ 
         </>
     );
 }
