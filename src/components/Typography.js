@@ -40,5 +40,31 @@ export const SubtitlePost = styled(Text)`
   font-size: 1rem;
   
 `
+export const RegisterLoginTilte = styled(Text)`
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 2rem;
+  margin-left: 8.9rem;
+  
+`
+export const RegisterLoginSubtitle = styled(Text)`
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+`
+export const Register = styled(Text)`
+width: 6rem;
+margin-top: 26rem;
+margin-left: 8.5rem;
+  font-size: 1.4rem;
+  padding-top: .5rem;
+  color: #fff0cb;
+text-decoration: underline;
 
 
+  &:hover{
+  color: #f96c01;
+    cursor: pointer;
+ }
+`
