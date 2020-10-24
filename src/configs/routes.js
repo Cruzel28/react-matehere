@@ -34,6 +34,11 @@ export default {
     path: '/register',
     exact : true,
     component : lazy( () => import('../pages/Register'))
+  },
+  Account : {
+    path: '/account',
+    exact : true,
+    component : lazy( () => import('../pages/Account'))
   }
 
 }
