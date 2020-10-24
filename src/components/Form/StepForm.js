@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import ActionForm from '../../contexts/ActionForm'
 
 import { HavePost1,HavePost2,HavePost3,HavePost4 } from './Havepost/index';
-import { NeedPost1,NeedPost2,NeedPost3,NeedPost4 } from './Needpost/index';
+// import { NeedPost1,NeedPost2,NeedPost3,NeedPost4 } from './Needpost/index2';
 
 
 const StepperStyled = styled(Stepper)`
@@ -33,20 +33,20 @@ function getStepContentHavePost(stepIndex) {
   }
 }
 
-function getStepContentNeedPost(stepIndex) {
-    switch (stepIndex) {
-      case 0:
-        return <NeedPost1/>;
-      case 1:
-        return <NeedPost2/>;
-      case 2:
-        return <NeedPost3/>;
-      case 3:
-          return <NeedPost4/>;
-      default:
-        return 'Unknown stepIndex';
-    }
-  }
+// function getStepContentNeedPost(stepIndex) {
+//     switch (stepIndex) {
+//       case 0:
+//         return <NeedPost1/>;
+//       case 1:
+//         return <NeedPost2/>;
+//       case 2:
+//         return <NeedPost3/>;
+//       case 3:
+//           return <NeedPost4/>;
+//       default:
+//         return 'Unknown stepIndex';
+//     }
+//   }
 
 
 export default function StepFrom(props) {
@@ -81,7 +81,7 @@ export default function StepFrom(props) {
         ) : (
           <div>
             <ContentFormDiv>
-              {props.children === "HavePost" ? getStepContentHavePost(activeStep) : getStepContentNeedPost(activeStep) }
+              {props.children === "HavePost" ? getStepContentHavePost(activeStep) : '' }
             </ContentFormDiv>
           </div>
         )}
