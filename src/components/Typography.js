@@ -46,6 +46,7 @@ export const RegisterLoginTilte = styled(Text)`
   color: #000;
   margin-bottom: 2rem;
   margin-left: 8.9rem;
+  position: absolute;
   
 `
 export const RegisterLoginSubtitle = styled(Text)`
@@ -67,4 +68,13 @@ text-decoration: underline;
   color: #f96c01;
     cursor: pointer;
  }
+`
+export const RegisterTiltle = styled(Text)`
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #000;
+  margin-top: 7.8rem;
+  margin-left: 8.9rem;
+  
+  
 `
