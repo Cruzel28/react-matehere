@@ -1,8 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+
+export const LoginForm = styled.form`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1rem;
+
+    position: relative;
+
+`
+
 const Background = styled.div`
- height : 100vh;
+ height : 120vh;
   width : 100vw ;
    background-color: #FBC71C;
    background-size : cover;
@@ -21,7 +33,7 @@ const Background = styled.div`
 const ContainerBox = styled.div`
     position: absolute;
   width: 65%;
-  height: 85%;
+  height: 70%;
   background-color:#fff;
   display: flex;
   flex: 1;
@@ -41,6 +53,8 @@ export const Input = styled.input`
   margin-top: 1rem;
   margin-left: 1.1rem;
   font-size: 1rem;
+  font-family : 'Kanit', sans-serif;
+  padding: 5px;
 
   &::placeholder{
     color: #ccc;
@@ -68,14 +82,14 @@ color: #fff;
 
 font-family : 'Kanit', sans-serif;
 font-size: 1rem;
-margin-top: 15rem;
+margin-top: 12.6rem;
 margin-left: 7rem;
 border: none;
+
 
 text-align:center;
 justify-content :center ;
 
-transition: all 0.6s ease-in-out;
 
  &:hover{
   background-color: #f96c01;
@@ -90,6 +104,12 @@ position: absolute;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
 `
+export const InputContainer = styled.div`
+  margin-top: 5rem;
+`
+
+
+
 
 function RegisterLogin({src,children}) {
    return (
