@@ -22,6 +22,21 @@ export const ActionFormProvider = ({ children }) => {
         like_thing : undefined,
         dislike : undefined,
         other_information : undefined,
+        parking : undefined,
+        lift : undefined,
+        keycard : undefined,
+        security : undefined,
+        pool : undefined,
+        gym : undefined,
+        luandry : undefined,
+        air_conditioner : undefined,
+        number_of_toilet : undefined,
+        number_of_bedroom : undefined,
+        pets : undefined,
+        smoking : undefined,
+        internet_wifi : undefined,
+        furniture : undefined,
+        water_heater : undefined,
     })
 
     const [infoNeedPost, setInfoNeedPost] = useState({ 
