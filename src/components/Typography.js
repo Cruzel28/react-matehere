@@ -32,3 +32,13 @@ export const FooterText = styled(Text)`
   font-size: .5rem; 
 
 `
+export const TitlePost = styled(Text)`
+  font-size: 2.5rem;
+  font-weight: 900;
+`
+export const SubtitlePost = styled(Text)`
+  font-size: 1rem;
+  
+`
+
+
