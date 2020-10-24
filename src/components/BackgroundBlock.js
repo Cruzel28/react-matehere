@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const BackgroundImage = styled.div`
 
-  height : 100vh;
+  height : 120vh;
   width : 100vw ;
   background-image : url(${props => props.src});
-  background-repeat : no-repeat;
+  background-repeat : repeat;
   background-size : cover;
   background-position : center ;
   background-attachment :fixed ;
