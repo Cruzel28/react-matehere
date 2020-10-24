@@ -270,12 +270,72 @@ export function HavePost2() {
         </>
     );
 }
-export function HavePost3() {
+const SearchDropdown = styled.select`
+  display: flex;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px;
+  border: none;
+  background-color: #4192b0;
 
+  color: #fff;
+
+  font-family: "Kanit", sans-serif;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #f96c01;
+    cursor: pointer;
+  }
+
+  option {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      background-color: #fff0cb;
+      cursor: pointer;
+    }
+  }
+`;
+export function HavePost3() {
+    //state global Step
+    const {Active,Steps,HandleButton,HavePost } = useContext(ActionForm );
+    const {activeStep } = Active;
+    //state function handle event buttonClick steponForm );
+    const { handleNext,handleBack  } = HandleButton;
+    const { steps } = Steps
+    //ActionContext Form Havepost Information State 
+    const { infoHavePost , setInfoHavePost } = HavePost;
+
+    const [validator, showValidationMessage] = useValidator()
+
+    const handleSubmitFont = () => {
+      if (validator.allValid()) {
+        handleNext();
+      } else {
+        showValidationMessage(true);
+      }
+    };
   
   return (
       <>
+          <Container>
 
+          <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,parking : e.target.value})}} value={infoHavePost.parking} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
+          </Container>
+
+          <ButtonContainer>
+            <Button onClick={handleBack} disabled={activeStep === 0} >Back</Button>
+            <Button onClick={handleSubmitFont} > {activeStep === steps.length - 1 ? 'Finish' : 'Next'} </Button>            
+        </ButtonContainer>
       </>
   );
 }
