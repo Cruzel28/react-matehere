@@ -10,9 +10,8 @@ export const Title = styled(Text)`
 font-size : 3rem;
 font-weight: 900;
 margin-bottom: 2.5rem;
-
-
 `
+
 export  const Subtitle = styled(Text)`
 font-size : 1.5rem;
 padding-bottom: 1rem;
@@ -76,5 +75,21 @@ export const RegisterTiltle = styled(Text)`
   margin-top: 7.8rem;
   margin-left: 8.9rem;
   
+  
+`
+
+export const AccountTitle = styled(Text)`
+font-size : 1.5rem;
+font-weight: 900;
+margin-top: 15rem;
+margin-left: 6.5rem;
+
+`
+
+export const AccountSubTitle = styled(Text)`
+font-size : 1.3rem;
+font-weight: 500;
+margin-top: 1rem;
+margin-left: 8rem;
   
 `
