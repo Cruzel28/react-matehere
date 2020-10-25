@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   ${reset}
   html, body,#root {
-    height : 120vh;
+    height : 130vh;
     width: 100vw;
     
 
