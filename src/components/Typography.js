@@ -55,7 +55,7 @@ export const RegisterLoginSubtitle = styled(Text)`
 `
 export const Register = styled(Text)`
 width: 6rem;
-margin-top: 26rem;
+margin-top: 24.7rem;
 margin-left: 8.5rem;
   font-size: 1.4rem;
   padding-top: .5rem;
