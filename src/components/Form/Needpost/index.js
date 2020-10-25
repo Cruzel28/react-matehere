@@ -228,7 +228,7 @@ export function NeedPost2() {
                           onBlur={( infoNeedPost.need_routine=== '' ?validator.showMessageFor("needroutine") : '')}
                           
               />
-              <ErrorMassage>{validator.message("needroutine", infoNeedPost.routine, "required", {messages: {required: "กรุณากรอก"}})}</ErrorMassage>
+              <ErrorMassage>{validator.message("needroutine", infoNeedPost.need_routine, "required", {messages: {required: "กรุณากรอก"}})}</ErrorMassage>
             
               <StyledInput 
                           name={"needlikething"}
@@ -254,7 +254,7 @@ export function NeedPost2() {
                           name={"needotherinformation"}
                           onChange={(e) => {setInfoNeedPost({...infoNeedPost,need_other_information : e.target.value})}}
                           value={infoNeedPost.need_other_information} 
-                          placeholder="สิ่งที่ชอบ" 
+                          placeholder="ข้อมูลอื่นๆ" 
                           onBlur={( infoNeedPost.need_other_information=== '' ?validator.showMessageFor("needotherinformation") : '')}
                           
               />
@@ -401,10 +401,91 @@ const handleSubmitFont = () => {
 }
 export function NeedPost4() {
 
-  
-  return (
-      <>
+   //state global Step
+   const {Active,Steps,HandleButton,NeedPost } = useContext(ActionForm );
+   const {activeStep } = Active;
+   //state function handle event buttonClick steponForm );
+   const { handleNext,handleBack  } = HandleButton;
+   const { steps } = Steps
+   //ActionContext Form Havepost Information State 
+   const { infoNeedPost , setInfoNeedPost } = NeedPost;
 
+   const [validator, showValidationMessage] = useValidator()
+
+   const handleSubmitFont = () => {
+     if (validator.allValid()) {
+       handleNext();
+     } else {
+       showValidationMessage(true);
+     }
+   };
+  return (
+      <>  
+        <Container>
+        
+        <FacilText>เครื่องปรับอากาศ</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,air_conditioner : e.target.value})}} value={infoNeedPost.air_conditioner} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <StyledInputContainer>
+          <StyledInput 
+                          name={"numberoftoilet"}
+                          onChange={(e) => {setInfoNeedPost({...infoNeedPost,number_of_toilet : e.target.value})}}
+                          value={infoNeedPost.number_of_toilet} 
+                          placeholder="จำนวนห้องน้ำที่ต้องการ" 
+                       
+                          
+              />
+             
+              <StyledInput 
+                          name={"numberofbedroom"}
+                          onChange={(e) => {setInfoNeedPost({...infoNeedPost,number_of_bedroom : e.target.value})}}
+                          value={infoNeedPost.number_of_bedroom} 
+                          placeholder="จำนวนห้องนอนที่ต้องการ" 
+                      
+                          
+              />
+              </StyledInputContainer> 
+              
+            
+        <FacilText>สัตว์เลี้ยง</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,pets : e.target.value})}} value={infoNeedPost.pets} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+            
+          <FacilText>พื้นที่สูบบุหรี่</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,smoking : e.target.value})}} value={infoNeedPost.smoking} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+            
+          <FacilText>สัญญาณอินเตอร์เน็ต</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,internet_wifi : e.target.value})}} value={infoNeedPost.internet_wifi} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+            
+          <FacilText>เฟอร์นิเจอร์</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,furniture : e.target.value})}} value={infoNeedPost.furniture} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>เครื่องทำน้ำอุ่น</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,water_heater : e.target.value})}} value={infoNeedPost.water_heater} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+        </Container>
+
+        <ButtonContainer>
+            <Button onClick={handleBack} disabled={activeStep === 0} >Back</Button>
+            <Button onClick={handleSubmitFont} > {activeStep === steps.length - 1 ? 'Finish' : 'Next'} </Button>            
+</ButtonContainer>
       </>
   );
 }
