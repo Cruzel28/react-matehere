@@ -35,10 +35,28 @@ export default {
     exact : true,
     component : lazy( () => import('../pages/Register'))
   },
+  
+  Register2 : {
+    path: '/register2',
+    exact : true,
+    component : lazy( () => import('../pages/Register2'))
+  },
+  Register3 : {
+    path: '/register3',
+    exact : true,
+    component : lazy( () => import('../pages/Register3'))
+  },
+
   Account : {
     path: '/account',
     exact : true,
     component : lazy( () => import('../pages/Account'))
+  },
+
+  Seepost : {
+    path: '/seepost',
+    exact : true,
+    component : lazy( () => import('../pages/Seepost'))
   }
 
 }
