@@ -9,7 +9,7 @@ import styled from 'styled-components'
 
 import ActionForm from '../../contexts/ActionForm'
 
-const Container = styled.div`
+export const Container = styled.div`
    position: absolute;
   width: 70%;
   height: fit;
