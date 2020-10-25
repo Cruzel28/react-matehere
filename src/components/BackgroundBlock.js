@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const BackgroundImage = styled.div`
 
-  height : 120vh;
+  height : 130vh;
   width : 100vw ;
   background-image : url(${props => props.src});
   background-repeat : repeat;
