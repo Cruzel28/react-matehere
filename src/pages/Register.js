@@ -5,7 +5,7 @@ import LoginImage from '../assets/WayToLogin.png'
 
 import { Link } from 'react-router-dom'
 import { RegisterLoginTilte ,Register } from "../components/Typography";
-import styled from 'styled-components'
+
 
 
 
@@ -31,8 +31,10 @@ function RegisterP() {
             <Input placeholder="ชื่อผู้ใช้"/>
             </InputContainer>
                 
-
-            <Button>ถัดไป</Button>
+            
+            <Button>
+                <Link to="/register2">ถัดไป</Link>
+                </Button>
             </LoginForm>
 
           
