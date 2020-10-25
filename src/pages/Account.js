@@ -24,7 +24,7 @@ const Background = styled.div`
 
 const Container = styled.div`
   position: absolute;
-  width: 50%;
+  width: auto;
   height: 80%;
   background-color: #81c0c5;
   display: flex;
@@ -147,9 +147,9 @@ function Haveroom() {
                   <Link to="/addpost">
                     <Button src={AddPost} />
                   </Link>
+                  <Link to="#editpost">
                     <Button src={Post} />
-
-                
+                    </Link>
                 </LayoutContent>
 
                 <LayoutContent>
