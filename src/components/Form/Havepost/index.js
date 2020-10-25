@@ -479,6 +479,12 @@ export function HavePost4() {
                 <option value="ไม่มี">ไม่มี</option>
           </SearchDropdown>
 
+          <FacilText>เครื่องทำน้ำอุ่น</FacilText>
+        <SearchDropdown onChange={(e) => {setInfoHavePost({...infoHavePost,water_heater : e.target.value})}} value={infoHavePost.water_heater} >
+                <option selected value="มี">มี</option>
+                <option value="ไม่มี">ไม่มี</option>
+          </SearchDropdown>
+
         </Container>
 
         <ButtonContainer>
