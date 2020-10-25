@@ -14,7 +14,7 @@ export const LoginForm = styled.form`
 `
 
 const Background = styled.div`
- height : 120vh;
+ height : 130vh;
   width : 100vw ;
    background-color: #FBC71C;
    background-size : cover;
