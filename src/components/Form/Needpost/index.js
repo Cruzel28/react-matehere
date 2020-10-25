@@ -270,12 +270,132 @@ export function NeedPost2() {
         </>
     );
 }
-export function NeedPost3() {
 
+const SearchDropdown = styled.select`
+  display: flex;
+  /* position: relative; */
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  border: none;
+  font-family : 'Kanit', sans-serif;
+margin-bottom:4px;
+margin-top: -8px;
+  margin-left: 27rem;
+  background-color: #F9B401;
+
+  color: #fff;
+
+  font-family: "Kanit", sans-serif;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #f96c01;
+    cursor: pointer;
+  }
+
+  option {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      background-color: #fff0cb;
+      cursor: pointer;
+    }
+  }
+`;
+
+const StyledInputContainer = styled.div`
+ margin:0 1rem;
+ 
+
+  &:focus {
+    background-color : #ccc ;
+  }
+  &::placeholder {
+    color: #aaa;
+  }
+`
+
+
+const FacilText = styled.div`
+ 
+  z-index:1000;
+  margin-left: 3rem;
+  outline-width:none;
   
+
+`
+export function NeedPost3() {
+//state global Step
+const {Active,Steps,HandleButton,NeedPost } = useContext(ActionForm );
+const {activeStep } = Active;
+//state function handle event buttonClick steponForm );
+const { handleNext,handleBack  } = HandleButton;
+const { steps } = Steps
+//ActionContext Form Havepost Information State 
+const { infoNeedPost , setInfoNeedPost } = NeedPost;
+
+const [validator, showValidationMessage] = useValidator()
+
+const handleSubmitFont = () => {
+  if (validator.allValid()) {
+    handleNext();
+  } else {
+    showValidationMessage(true);
+  }
+};
+
   return (
       <>
+        <FacilText>ลานจอดรถ</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,parking : e.target.value})}} value={infoNeedPost.parking} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
 
+          <FacilText>ลิฟต์</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,lift : e.target.value})}} value={infoNeedPost.lift} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>คีย์การ์ด</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,keycard : e.target.value})}} value={infoNeedPost.keycard} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>ระบบรักษาความปลอดภัย</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,security : e.target.value})}} value={infoNeedPost.security} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>สระว่ายน้ำ</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,pool : e.target.value})}} value={infoNeedPost.pool} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>ฟิตเนส</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,gym : e.target.value})}} value={infoNeedPost.gym} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <FacilText>บริการซักรีด</FacilText>
+          <SearchDropdown onChange={(e) => {setInfoNeedPost({...infoNeedPost,luandry : e.target.value})}} value={infoNeedPost.luandry} >
+                <option selected value="มี">ต้องการ</option>
+                <option value="ไม่มี">ไม่ต้องการ</option>
+          </SearchDropdown>
+
+          <ButtonContainer>
+            <Button onClick={handleBack} disabled={activeStep === 0} >Back</Button>
+            <Button onClick={handleSubmitFont} > {activeStep === steps.length - 1 ? 'Finish' : 'Next'} </Button>            
+        </ButtonContainer>
       </>
   );
 }
