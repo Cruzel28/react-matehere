@@ -73,8 +73,9 @@ function Haveroom() {
                 <Link to="/addpost">
               <Button src={AddPost}/>
               </Link>
+              <Link to="/seepost">
               <Button src={Post}/>
-              
+              </Link>
               </LayoutContent>
               
             </SemiSubtitle>
