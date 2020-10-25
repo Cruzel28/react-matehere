@@ -73,8 +73,9 @@ function Needroom() {
               <Link to="/addpost">
               <Button src={AddPost}/>
               </Link>
+              <Link to="/seeneedpost">
               <Button src={Post}/>
-              
+              </Link>
               </LayoutContent>
               
             </SemiSubtitle>
