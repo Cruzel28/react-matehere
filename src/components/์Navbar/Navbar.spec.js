@@ -23,11 +23,4 @@ describe('Navbar', () => {
     expect(getByText(/เข้าสู่ระบบ/).closest('a')).toHaveAttribute('href', '/login')
   })
 
-  test('should have link navigate to หน้าแรก, หาเมท, หาห้อง and เข้าสู่ระบบ', () => {
-    const { getByText } = render(
-      <MemoryRouter>
-        <Navbar />
-      </MemoryRouter>
-    )
-  })
 })
