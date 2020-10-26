@@ -15,6 +15,16 @@ export const ActionRegisterLoginProvider = ({ children }) => {
 
     const [infoRegister, setInRegister] = useState({ 
         
+        first_name:undefined,
+        last_name:undefined,
+        username : undefined,
+        password : undefined,
+        email:undefined,
+        telephone_number:undefined,
+        line_id:undefined,
+        facebook_name:undefined,
+        gender:undefined,
+        profile_picture:undefined,
 
     })
 
