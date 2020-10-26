@@ -1,18 +1,20 @@
 import React,{useContext} from 'react'
-
 import RegisterLogin,{LoginForm,RegisterLoginImage,Button,Input,InputContainer} from '../components/RegisterLogin'
 import RegisterImage from '../assets/WayToRegister.png'
-
 import { Link } from 'react-router-dom'
 import { RegisterLoginTilte ,Register } from "../components/Typography";
 import styled from 'styled-components'
-
+import {login} from '../service/APIservice'
 import ActionRegisterLogin from '../../src/contexts/ActionRegisterLogin'
 
 function Login() {
 
     const {LoginState } = useContext(ActionRegisterLogin)
     const { infoLogin, setInfoLogin} = LoginState 
+
+    const handleSubmited = () => {
+        // login(infoLogin).then(response => )
+    }
 
 
     return (

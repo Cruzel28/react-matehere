@@ -15,10 +15,8 @@ export const ActionRegisterLoginProvider = ({ children }) => {
 
     const [infoRegister, setInRegister] = useState({ 
         
-        
-    })
 
- 
+    })
 
 
     const InfoRegisterLogin = {
