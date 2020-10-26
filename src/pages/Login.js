@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 
 import RegisterLogin,{LoginForm,RegisterLoginImage,Button,Input,InputContainer} from '../components/RegisterLogin'
 import RegisterImage from '../assets/WayToRegister.png'
@@ -7,9 +7,13 @@ import { Link } from 'react-router-dom'
 import { RegisterLoginTilte ,Register } from "../components/Typography";
 import styled from 'styled-components'
 
-
+import ActionRegisterLogin from '../../src/contexts/ActionRegisterLogin'
 
 function Login() {
+
+    const {LoginState } = useContext(ActionRegisterLogin)
+    const { infoLogin, setInfoLogin} = LoginState 
+
 
     return (
 
@@ -20,8 +24,8 @@ function Login() {
             <RegisterLoginTilte>ลงชื่อเข้าใช้</RegisterLoginTilte>
             
             <InputContainer>
-            <Input placeholder="ชื่อผู้ใช้"/>
-            <Input placeholder="รหัสผ่าน"/>
+            <Input placeholder="ชื่อผู้ใช้" onChange={(event) => {setInfoLogin({infoLogin,username : event.target.value})} }/>
+            <Input placeholder="รหัสผ่าน" onChange={(event) => {setInfoLogin({infoLogin,password : event.target.value})} }/>
             </InputContainer>
 
             <Button>ลงชื่อเข้าใช้</Button>
