@@ -70,7 +70,7 @@ text-decoration: underline;
 `
 export const Login = styled(Text)`
 width: 6rem;
-margin-top: 26.5rem;
+margin-top: 28.7rem;
 margin-left: 8.5rem;
   font-size: 1.4rem;
   padding-top: .5rem;
