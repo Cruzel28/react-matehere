@@ -1,18 +1,18 @@
 
-export async function getHavepost () {
-    return  fetch(`http://127.0.0.1:3333/api/v1/haveposts`).then(response => response.json())
+export async function getHavepost (page) {
+    return  fetch(`http://127.0.0.1:3333/api/v1/haveposts/?page=${page}`).then(response => response.json())
 }
-export function getNeedpost () {
-    return  fetch(`http://127.0.0.1:3333/api/v1/needposts`).then(response => response.json())
+export async function getNeedpost (page) {
+    return  fetch(`http://127.0.0.1:3333/api/v1/needposts/?page=${page}`).then(response => response.json())
 }
-export function getHavepostId (id) {
+export async function getHavepostId (id) {
     return fetch(`http://127.0.0.1:3333/api/v1/haveposts/${id}`).then(response => response.json())
 }
-export function getNeedpostId (id) {
+export async function getNeedpostId (id) {
     return  fetch(`http://127.0.0.1:3333/api/v1/needposts/${id}`).then(response => response.json())
 }
 
-export function getClientId (id){
+export async function getClientId (id){
     return  fetch(`http://127.0.0.1:3333/api/v1/clients/${id}`).then(response => response.json())
 }
 
@@ -124,26 +124,26 @@ export async function  login(data) {
 
 }
 
-export async function register(data){
+export async function register(data,img){
     const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({     
-                username : data,
-                password : data,
-                first_name :data, 
-                last_name : data,
-                email :data,
-                telephone_number : data,
-                line_id :data,
-                facebook_name : data,
-                gender :data,
-                profile_picture :data,
+                username : data.username,
+                password : data.password,
+                first_name :data.first_name, 
+                last_name : data.last_name,
+                email :data.email,
+                telephone_number : data.telephone_number,
+                line_id :data.line_id,
+                facebook_name : data.facebook_name ,
+                gender :data.gender,
+                profile_picture :img,
         })
       }
-      return fetch('http://127.0.0.1:3333/api/v1/needposts', requestOptions)
+    return fetch('http://127.0.0.1:3333/api/v1/registers', requestOptions)
         .then(response => response.json())
 }
 

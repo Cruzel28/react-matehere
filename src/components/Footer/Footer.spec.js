@@ -3,7 +3,7 @@
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import Footer from '.'
+import Footer from './Footer'
 
 describe('Footer', () => {
     test('should have text © 2020 Created By Team Project CAMT DII TEAM 4', () => {

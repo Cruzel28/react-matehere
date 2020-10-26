@@ -12,9 +12,9 @@ function Login() {
     const {LoginState } = useContext(ActionRegisterLogin)
     const { infoLogin, setInfoLogin} = LoginState 
 
-    const handleSubmited = () => {
-        // login(infoLogin).then(response => )
-    }
+    // const handleSubmited = () => {
+    //     // login(infoLogin).then(response => )
+    // }
 
 
     return (

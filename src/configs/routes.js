@@ -36,21 +36,21 @@ export default {
     component : lazy( () => import('../pages/Register'))
   },
   
-  Register2 : {
-    path: '/register2',
-    exact : true,
-    component : lazy( () => import('../pages/Register2'))
-  },
-  Register3 : {
-    path: '/register3',
-    exact : true,
-    component : lazy( () => import('../pages/Register3'))
-  },
-  Register4 : {
-    path: '/register4',
-    exact : true,
-    component : lazy( () => import('../pages/Register4'))
-  },
+  // Register2 : {
+  //   path: '/register2',
+  //   exact : true,
+  //   component : lazy( () => import('../pages/Register2'))
+  // },
+  // Register3 : {
+  //   path: '/register3',
+  //   exact : true,
+  //   component : lazy( () => import('../pages/Register3'))
+  // },
+  // Register4 : {
+  //   path: '/register4',
+  //   exact : true,
+  //   component : lazy( () => import('../pages/Register4'))
+  // },
 
   Account : {
     path: '/account',
@@ -59,12 +59,12 @@ export default {
   },
 
   Seepost : {
-    path: '/seepost',
+    path: '/seepost/:id',
     exact : true,
     component : lazy( () => import('../pages/Seepost'))
   },
   SeeNeedpost : {
-    path: '/seeneedpost',
+    path: '/seeneedpost/:id',
     exact : true,
     component : lazy( () => import('../pages/SeeNeedpost'))
   }

@@ -4,7 +4,7 @@ import routes from './configs/routes';
 import withHelmet from './utils/withHelmet';
 import GlobalStyle from './utils/GlobalStyle';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (

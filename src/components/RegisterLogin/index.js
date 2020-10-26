@@ -154,7 +154,7 @@ function RegisterLogin({src,children}) {
      <Background >
      <ContainerBox>
              {children}
-             </ContainerBox>
+      </ContainerBox>
      </Background>
  
  

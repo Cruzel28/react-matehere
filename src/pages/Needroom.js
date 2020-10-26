@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BackgroundBlock from "../components/BackgroundBlock";
 import AddPost from '../assets/addpost.png'
 import Post from '../assets/coverBlog.png'
-
+import {getNeedpost} from '../service/APIservice'
 import { Link } from 'react-router-dom'
 import { TitlePost, SemiSubtitle } from "../components/Typography";
 import styled from "styled-components";
+
 
 const Container = styled.div`
    position: absolute;
@@ -55,6 +56,15 @@ display: flex;
 `;
 
 function Needroom() {
+  const [page, setPage] = useState(1)
+  const [dataAll ,setDataAll ] = useState(null)
+
+  useEffect( () => {
+    getNeedpost(page).then(response => setDataAll(response))
+  }
+  ,[page])
+
+  console.log(dataAll)
     return (
       <>
         <div>
@@ -73,15 +83,19 @@ function Needroom() {
               <Link to="/addpost">
               <Button src={AddPost}/>
               </Link>
-              <Link to="/seeneedpost">
-              <Button src={Post}/>
-              </Link>
+                {/* {dataAll.data.data.map((item,index) => (
+                  <Link to={`/seeneedpost/${index}`} >
+                    <Button src={item.cover_img_url}/>
+                      <h4>{item.type_room}</h4>
+                  </Link>) 
+                )} */}
               </LayoutContent>
               
             </SemiSubtitle>
             </Content>
             <Content>
-              
+            {/* <button disabled={(dataAll.data.lastPage === page)} onClick={() =>setPage(page+1)}>ถัดไป</button>
+            <button disabled={(1 === page)} onClick={() => setPage(page-1)}>ถัดไป</button> */}
             </Content>
           </Container>
           </BackgroundBlock>

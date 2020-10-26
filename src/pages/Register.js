@@ -1,24 +1,24 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 
 import RegisterLogin,{LoginForm,RegisterLoginImage,RegisterButton,InputRegister,InputContainerRe} from '../components/RegisterLogin'
 import LoginImage from '../assets/WayToLogin.png'
 
 import { Link } from 'react-router-dom'
 import { RegisterLoginTilte ,Login } from "../components/Typography";
-import {register} from '../service/APIservice'
+import {register,storeImg} from '../service/APIservice'
 import ActionRegisterLogin from '../../src/contexts/ActionRegisterLogin'
-
 
 
 
 function RegisterP() {
 
-    
+    const [ img,setImg ] = useState(null)
     const {RegisterState } = useContext(ActionRegisterLogin)
     const { infoRegister, setInRegister} = RegisterState 
 
-    const handleSubmited = () => {
-        // register(infoRegister).then(response => )
+    const handleSubmited = async () => {
+        await storeImg(infoRegister.profile_picture).then(response => setImg(response.data.path))
+        await register(infoRegister,img)
     }
 
     return (
@@ -41,15 +41,16 @@ function RegisterP() {
             <InputRegister placeholder="นามสกุล"onChange={(event) => {setInRegister({infoRegister,last_name : event.target.value})} }/>
             <InputRegister placeholder="ชื่อผู้ใช้"onChange={(event) => {setInRegister({infoRegister,username : event.target.value})} }/>
             <InputRegister type="password" placeholder="รหัสผ่าน"onChange={(event) => {setInRegister({infoRegister,password : event.target.value})} }/>
-            <InputRegister type="password" placeholder="ยืนยันรหัสผ่าน" onChange={(event) => {setInRegister({infoRegister,password : event.target.value})} }/>
+            <InputRegister type="password" placeholder="ยืนยันรหัสผ่าน" />
             <InputRegister  placeholder="อีเมลล์"onChange={(event) => {setInRegister({infoRegister,email : event.target.value})} }/>
             <InputRegister  placeholder="เบอร์โทรศัพท์" onChange={(event) => {setInRegister({infoRegister,telephone_number : event.target.value})} }/>
             <InputRegister  placeholder="LineID"onChange={(event) => {setInRegister({infoRegister,line_id : event.target.value})} }/>
             <InputRegister  placeholder="Facebook" onChange={(event) => {setInRegister({infoRegister,facebook_name : event.target.value})} }/>
             <InputRegister  placeholder="เพศ" onChange={(event) => {setInRegister({infoRegister,gender : event.target.value})} }/>
+            <InputRegister type="file" onChange={(event) => {setInRegister({infoRegister,profile_picture: event.target.files[0]})}} />
             </InputContainerRe>
                 
-            <RegisterButton>ลงทะเบียน</RegisterButton>
+            <RegisterButton onClick={handleSubmited}>ลงทะเบียน</RegisterButton>
             </LoginForm>
 
           
