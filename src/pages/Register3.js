@@ -31,7 +31,7 @@ function Register2() {
             </InputContainer>
                 
 
-            <Button>ถัดไป</Button>
+            <Button><Link to="/register4">ถัดไป</Link></Button>
             </LoginForm>
 
           
