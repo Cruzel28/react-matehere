@@ -60,6 +60,19 @@ export const Input = styled.input`
     color: #ccc;
   }
 `
+export const InputRegister = styled.input`
+  width: 90%;
+  border: 1px solid #000;
+  margin-top: 5px;
+  margin-left: 1.1rem;
+  font-size: .9rem;
+  font-family : 'Kanit', sans-serif;
+  padding: 5px;
+
+  &::placeholder{
+    color: #ccc;
+  }
+`
 
 export const RegisterLoginImage = styled.div`
 
@@ -96,6 +109,28 @@ justify-content :center ;
     cursor: pointer;
  }
 `
+export const RegisterButton = styled.button`
+
+width: 10rem;
+background-color: #4192B0;
+color: #fff;
+
+font-family : 'Kanit', sans-serif;
+font-size: 1rem;
+margin-top: 2rem;
+margin-left: 7rem;
+border: none;
+
+
+text-align:center;
+justify-content :center ;
+
+
+ &:hover{
+  background-color: #f96c01;
+    cursor: pointer;
+ }
+`
 
 
 export const FormContainer = styled.div`
@@ -106,6 +141,9 @@ position: absolute;
 `
 export const InputContainer = styled.div`
   margin-top: 5rem;
+`
+export const InputContainerRe = styled.div`
+  margin-top: 3rem;
 `
 
 
