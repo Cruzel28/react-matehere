@@ -82,7 +82,7 @@ color: #fff;
 
 font-family : 'Kanit', sans-serif;
 font-size: 1rem;
-margin-top: 12.6rem;
+margin-top: 7.6rem;
 margin-left: 7rem;
 border: none;
 
