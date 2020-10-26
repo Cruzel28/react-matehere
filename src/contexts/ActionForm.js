@@ -4,6 +4,8 @@ export const ActionForm = createContext({})
 
 export const ActionFormProvider = ({ children }) => {
 
+    const [ image ,setImage] = useState(null)
+
     const [activeStep, setActiveStep] = useState(0);
 
     const [ infoHavePost, setInfoHavePost ] = useState({ 
@@ -96,9 +98,8 @@ export const ActionFormProvider = ({ children }) => {
         NeedPost : { infoNeedPost :infoNeedPost, setInfoNeedPost : setInfoNeedPost },
         Active : { activeStep: activeStep, setActiveStep :setActiveStep},
         HandleButton : { handleNext: handleNext, handleBack :handleBack , handleReset :handleReset },
-        Steps :{steps : steps}
-
-        
+        Steps :{steps : steps},
+        Uploaded : {image:image ,setImage:setImage}
     }
 
         
