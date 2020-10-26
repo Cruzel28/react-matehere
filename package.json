@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^26.0.14",
     "antd": "^4.7.2",
+    "axios": "^0.21.0",
     "bootstrap-switch-button-react": "^1.2.0",
     "formik": "^2.2.0",
     "node-sass": "^4.14.1",
