@@ -6,6 +6,8 @@ import { render } from '@testing-library/react'
 import Navbar from '.'
 
 describe('Navbar', () => {
+
+  
   test('should have link navigate to หน้าแรก, หาเมท, หาห้อง and เข้าสู่ระบบ', () => {
     const { getByText } = render(
       <MemoryRouter>
@@ -22,5 +24,6 @@ describe('Navbar', () => {
     expect(getByText(/หาห้อง/).closest('a')).toHaveAttribute('href', '/needroom')
     expect(getByText(/เข้าสู่ระบบ/).closest('a')).toHaveAttribute('href', '/login')
   })
+
 
 })
