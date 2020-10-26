@@ -46,6 +46,11 @@ export default {
     exact : true,
     component : lazy( () => import('../pages/Register3'))
   },
+  Register4 : {
+    path: '/register4',
+    exact : true,
+    component : lazy( () => import('../pages/Register4'))
+  },
 
   Account : {
     path: '/account',
