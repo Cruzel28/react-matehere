@@ -1,6 +1,6 @@
 import React from "react";
 import BackgroundBlock from "../BackgroundBlock";
-import HomeBackground from "../HomeBackground";
+import HomeBackground from "./HomeBackground";
 
 import { Link } from 'react-router-dom'
 import searchIcon from "../../assets/search.png";
@@ -13,7 +13,7 @@ import styled from "styled-components";
 const TextBox = styled.div`
   position: absolute;
   width: 70%;
-  height: 75%;
+  height: 60%;
   border: 2px solid #fff;
 
   display: flex;
