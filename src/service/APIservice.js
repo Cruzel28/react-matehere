@@ -2,7 +2,7 @@
 export async function getHavepost (page) {
     return  fetch(`http://127.0.0.1:3333/api/v1/haveposts/?page=${page}`).then(response => response.json())
 }
-export async function getNeedpost (page) {
+export function getNeedpost (page) {
     return  fetch(`http://127.0.0.1:3333/api/v1/needposts/?page=${page}`).then(response => response.json())
 }
 export async function getHavepostId (id) {
@@ -113,8 +113,8 @@ export async function  login(data) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({  
-          username :data , 
-          password : data 
+          username :data.username , 
+          password : data.password 
     
         })
       }

@@ -1,42 +1,35 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import BackgroundBlock from "../components/BackgroundBlock";
-import AddPost from '../assets/addpost.png'
-import Post from '../assets/coverBlog.png'
-import {getNeedpost} from '../service/APIservice'
-import { Link } from 'react-router-dom'
+import AddPost from "../assets/addpost.png";
+import { getNeedpost } from "../service/APIservice";
+import { Link } from "react-router-dom";
 import { TitlePost, SemiSubtitle } from "../components/Typography";
 import styled from "styled-components";
 
-
 const Container = styled.div`
-   position: absolute;
-  width: auto;
+  position: absolute;
+  width: 100%;
   height: auto;
-  background-color:#81C0C5;
+  background-color: #81c0c5;
   display: flex;
   flex: 1;
   flex-direction: row;
- 
-   
-`
+`;
 const Content = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  
-
-`
+`;
 const LayoutContent = styled.div`
- flex: 1;
-display: flex;
-flex-direction:row;
-align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 1rem 1rem;
-`
+`;
 
 const Button = styled.button`
-display: flex;
-
+  display: flex;
 
   width: 45%;
   padding: 4.5rem;
@@ -49,62 +42,55 @@ display: flex;
   background-position: center;
 
   &:hover {
-    filter: drop-shadow(1px 1px 10px  #fff0cb );
+    filter: drop-shadow(1px 1px 10px #fff0cb);
     cursor: pointer;
     transition: filter 0.5s;
   }
 `;
 
+const Description = styled.div`
+  padding: 2px 16px;
+`
+
 function Needroom() {
-  const [page, setPage] = useState(1)
-  const [dataAll ,setDataAll ] = useState(null)
+  const [page, setPage] = useState();
+  const [dataAll, setDataAll] = useState();
 
-  useEffect( () => {
-    getNeedpost(page).then(response => setDataAll(response))
-  }
-  ,[page])
+  useEffect(() => {
+    getNeedpost(page).then((response) => setDataAll(response));
+  }, [page]);
 
-  console.log(dataAll)
-    return (
-      <>
-        <div>
-          <BackgroundBlock>
+  return (
+    <>
+      <div>
+        <BackgroundBlock>
           <Container>
             <Content>
-            <TitlePost>
-           ตามหาห้องพักและรูมเมท
-           </TitlePost>
-          
-           <SemiSubtitle>
-              {" "}
-              หรือ
-              <a href="/haveroom"> กดที่นี่หากคุณมีห้องอยู่แล้ว</a>
-              <LayoutContent>
-              <Link to="/addpost">
-              <Button src={AddPost}/>
-              </Link>
+              <TitlePost>ตามหาห้องพักและรูมเมท</TitlePost>
 
-              <Link to="/seeneedpost">
-              <Button src={Post}/>
-              </Link>
-              </LayoutContent>
-
-                              {/* {dataAll.data.data.map((item,index) => (
-                  <Link to={`/seeneedpost/${index}`} >
-                    <Button src={item.cover_img_url}/>
-                      <h4>{item.type_room}</h4>
-                  </Link>) 
-                )} */}
-              
-            </SemiSubtitle>
+              <SemiSubtitle>
+                {" "}
+                หรือ
+                <a href="/haveroom"> กดที่นี่หากคุณมีห้องอยู่แล้ว</a>
+                <LayoutContent>
+                  <Link to="/addpost">
+                    <Button src={AddPost} />
+                  </Link>
+                  {dataAll?.data.data.map((item, index) => (
+                  <Link to={`/seepost/${index}`}>
+                    <Button src={item.cover_img_url} />
+                  <Description>ประเภท :{item.need_type}<p/>ที่อยู่{item.need_location}</Description>
+                  </Link>
+                ))}
+                </LayoutContent>
+              </SemiSubtitle>
             </Content>
-            <Content>
-            </Content>
+            <Content></Content>
           </Container>
-          </BackgroundBlock>
-        </div>
-      </>
-    );
-  }
-  
-  export default Needroom;
+        </BackgroundBlock>
+      </div>
+    </>
+  );
+}
+
+export default Needroom;
