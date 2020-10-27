@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useCallback, useContext, useState} from 'react'
 
 import RegisterLogin,{LoginForm,RegisterLoginImage,RegisterButton,InputRegister,InputContainerRe} from '../components/RegisterLogin'
 import LoginImage from '../assets/WayToLogin.png'
@@ -16,9 +16,9 @@ function RegisterP() {
     const {RegisterState } = useContext(ActionRegisterLogin)
     const { infoRegister, setInRegister} = RegisterState 
 
-    const handleSubmited = async () => {
-        await storeImg(infoRegister.profile_picture).then(response => setImg(response.data.path))
-        await register(infoRegister,img)
+    const handleSubmited = (e) => {
+        e.preventDefault() 
+        register(infoRegister,"http://127.0.0.1:3333/api/v1/assets/1603734138408.jpg")
     }
 
     return (
@@ -50,7 +50,7 @@ function RegisterP() {
             <InputRegister type="file" onChange={(event) => {setInRegister({infoRegister,profile_picture: event.target.files[0]})}} />
             </InputContainerRe>
                 
-            <RegisterButton onClick={handleSubmited}>ลงทะเบียน</RegisterButton>
+            <RegisterButton onClick={(e) => handleSubmited(e) }>ลงทะเบียน</RegisterButton>
             </LoginForm>
 
           

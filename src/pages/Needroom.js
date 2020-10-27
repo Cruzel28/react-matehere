@@ -83,19 +83,22 @@ function Needroom() {
               <Link to="/addpost">
               <Button src={AddPost}/>
               </Link>
-                {/* {dataAll.data.data.map((item,index) => (
+
+              <Link to="/seeneedpost">
+              <Button src={Post}/>
+              </Link>
+              </LayoutContent>
+
+                              {/* {dataAll.data.data.map((item,index) => (
                   <Link to={`/seeneedpost/${index}`} >
                     <Button src={item.cover_img_url}/>
                       <h4>{item.type_room}</h4>
                   </Link>) 
                 )} */}
-              </LayoutContent>
               
             </SemiSubtitle>
             </Content>
             <Content>
-            {/* <button disabled={(dataAll.data.lastPage === page)} onClick={() =>setPage(page+1)}>ถัดไป</button>
-            <button disabled={(1 === page)} onClick={() => setPage(page-1)}>ถัดไป</button> */}
             </Content>
           </Container>
           </BackgroundBlock>

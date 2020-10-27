@@ -64,7 +64,7 @@ export default {
     component : lazy( () => import('../pages/Seepost'))
   },
   SeeNeedpost : {
-    path: '/seeneedpost/:id',
+    path: '/seeneedpost',
     exact : true,
     component : lazy( () => import('../pages/SeeNeedpost'))
   }
